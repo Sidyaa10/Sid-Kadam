@@ -1,225 +1,132 @@
-import React, { useEffect } from 'react';
-import { Box, Typography, Stack, Avatar, Chip, IconButton, useTheme } from '@mui/material';
-import { motion, useAnimation } from 'framer-motion';
-import { useInView } from 'react-intersection-observer';
+import React from 'react';
+import { Box, Typography, Stack, IconButton, useTheme } from '@mui/material';
+import { motion } from 'framer-motion';
 import EmailIcon from '@mui/icons-material/Email';
-import PhoneIcon from '@mui/icons-material/Phone';
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
 import GitHubIcon from '@mui/icons-material/GitHub';
-import LocationOnIcon from '@mui/icons-material/LocationOn';
 import styled from 'styled-components';
 
 const StyledIconButton = styled(motion(IconButton))`
-  position: relative;
-  overflow: hidden;
-  
-  &::before {
-    content: '';
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    width: 0;
-    height: 0;
-    background: ${props => props.theme.palette.secondary.main}20;
-    border-radius: 50%;
-    transform: translate(-50%, -50%);
-    transition: width 0.6s ease, height 0.6s ease;
-  }
-
-  &:hover::before {
-    width: 100%;
-    height: 100%;
+  color: ${({ theme }) => theme.colors.primary};
+  &:hover {
+    background: ${({ theme }) => theme.colors.secondary}22;
   }
 `;
 
-const StyledAvatar = styled(motion(Avatar))`
-  position: relative;
-  &::after {
-    content: '';
-    position: absolute;
-    top: -4px;
-    left: -4px;
-    right: -4px;
-    bottom: -4px;
-    border: 2px solid ${props => props.theme.palette.secondary.main};
-    border-radius: 50%;
-    opacity: 0;
-    transition: opacity 0.3s ease;
-  }
-  &:hover::after {
-    opacity: 1;
-  }
+const Section = styled(motion.div)`
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 100px 0;
 `;
 
-const avatarUrl = '';
+const Title = styled(Typography)`
+  color: ${({ theme }) => theme.colors.secondary};
+  font-size: clamp(40px, 8vw, 80px);
+  font-weight: 600;
+  margin-bottom: 20px;
+`;
+
+const Subtitle = styled(Typography)`
+  color: ${({ theme }) => theme.colors.primary};
+  font-size: clamp(20px, 4vw, 40px);
+  margin-bottom: 30px;
+`;
+
+const Description = styled(Typography)`
+  color: ${({ theme }) => theme.colors.text.primary};
+  font-size: clamp(16px, 2vw, 20px);
+  max-width: 600px;
+  margin-bottom: 50px;
+  line-height: 1.6;
+`;
+
+const Pfp = styled.img`
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-bottom: 32px;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.08);
+`;
 
 const socialLinks = [
   {
-    icon: <LinkedInIcon />, label: 'LinkedIn', href: 'https://www.linkedin.com/in/siddhesh-kadam-593444359/', color: 'secondary.main',
+    icon: <LinkedInIcon />,
+    label: 'LinkedIn',
+    href: 'https://www.linkedin.com/in/siddhesh-kadam-593444359/',
   },
   {
-    icon: <GitHubIcon />, label: 'GitHub', href: 'https://github.com/Sidyaa10', color: 'secondary.main',
+    icon: <GitHubIcon />,
+    label: 'GitHub',
+    href: 'https://github.com/Sidyaa10',
   },
   {
-    icon: <EmailIcon />, label: 'Email', href: 'mailto:siddheshkadam2018@gmail.com', color: 'secondary.main',
-  },
-  {
-    icon: <PhoneIcon />, label: 'Phone', href: 'tel:+917972079747', color: 'secondary.main',
+    icon: <EmailIcon />,
+    label: 'Email',
+    href: 'mailto:siddheshkadam2018@gmail.com',
   },
 ];
 
-const textVariants = {
-  hidden: { opacity: 0, y: 20 },
-  visible: (i) => ({
-    opacity: 1,
-    y: 0,
-    transition: {
-      delay: i * 0.1,
-      duration: 0.8,
-      ease: [0.6, -0.05, 0.01, 0.99],
-    },
-  }),
-};
-
-export default function Home() {
+const Home = () => {
   const theme = useTheme();
-  const controls = useAnimation();
-  const [ref, inView] = useInView({
-    threshold: 0.1,
-    triggerOnce: true,
-  });
-
-  useEffect(() => {
-    if (inView) {
-      controls.start('visible');
-    }
-  }, [controls, inView]);
 
   return (
-    <Box
-      ref={ref}
-      sx={{
-        minHeight: 'calc(100vh - 64px)',
-        display: 'flex',
-        alignItems: 'center',
-        justifyContent: 'center',
-        bgcolor: 'background.default',
-        position: 'relative',
-        overflow: 'hidden',
-      }}
+    <Section
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      transition={{ duration: 0.5 }}
+      style={{ justifyContent: 'flex-start', minHeight: '100vh', paddingTop: '240px' }}
     >
-      {/* Animated background shapes */}
-      <motion.div
-        initial={{ opacity: 0, scale: 0.8 }}
-        animate={{ opacity: 0.15, scale: 1 }}
-        transition={{ duration: 1.2 }}
-        style={{
-          position: 'absolute',
-          top: '-10%',
-          left: '-10%',
-          width: '120%',
-          height: '120%',
-          borderRadius: '50%',
-          background: `radial-gradient(circle at 60% 40%, ${theme.palette.accent.main} 0%, transparent 80%)`,
-          zIndex: 0,
-        }}
-      />
-      <motion.div
-        initial={{ opacity: 0, scale: 0.8 }}
-        animate={{ opacity: 0.1, scale: 1 }}
-        transition={{ duration: 1.2, delay: 0.3 }}
-        style={{
-          position: 'absolute',
-          bottom: '-10%',
-          right: '-10%',
-          width: '100%',
-          height: '100%',
-          borderRadius: '50%',
-          background: `radial-gradient(circle at 40% 60%, ${theme.palette.primary.main} 0%, transparent 80%)`,
-          zIndex: 0,
-        }}
-      />
-      
-      <Box sx={{ zIndex: 1, textAlign: 'center', width: '100%', px: 2 }}>
+      <Box sx={{
+        display: 'flex',
+        flexDirection: 'column',
+        alignItems: 'center',
+        width: '100%',
+        position: 'relative',
+        top: 0,
+      }}>
+        <Pfp src="/profile.jpeg" alt="Profile" />
         <motion.div
-          initial="hidden"
-          animate={controls}
-          variants={{
-            visible: {
-              transition: {
-                staggerChildren: 0.1,
-              },
-            },
-          }}
+          initial={{ y: 20, opacity: 0 }}
+          animate={{ y: 0, opacity: 1 }}
+          transition={{ delay: 0.2 }}
         >
-          <StyledAvatar
-            sx={{ width: 120, height: 120, mx: 'auto', mb: 2, bgcolor: 'secondary.main', fontSize: 48 }}
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-            variants={textVariants}
-            custom={0}
-          >
-            S
-          </StyledAvatar>
-          
-          <motion.div variants={textVariants} custom={1}>
-            <Typography variant="h2" fontWeight={700} color="primary.main" gutterBottom>
-              Siddhesh Anand Kadam
-            </Typography>
-          </motion.div>
-          
-          <motion.div variants={textVariants} custom={2}>
-            <Typography variant="h5" color="secondary.main" gutterBottom>
-              Software Engineer
-            </Typography>
-          </motion.div>
-          
-          <motion.div variants={textVariants} custom={3}>
-            <Typography variant="h6" color="text.primary" sx={{ maxWidth: 600, mx: 'auto', mb: 3 }}>
-              Hi! I recently graduated from Kaveri College. I'm a hard worker and always give my hundred percent on the tasks/work I've been assigned. I wish to grow my skills further and gain more experience through my next opportunity.
-            </Typography>
-          </motion.div>
-          
-          <motion.div variants={textVariants} custom={4}>
-            <Stack direction="row" spacing={2} justifyContent="center" mb={2} flexWrap="wrap" gap={2}>
-              {socialLinks.map((item, index) => (
-                <StyledIconButton
-                  key={item.label}
-                  component="a"
-                  href={item.href}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  sx={{ color: theme.palette.secondary.main, bgcolor: 'background.paper', boxShadow: 1 }}
-                  whileHover={{ scale: 1.1, rotate: 5 }}
-                  whileTap={{ scale: 0.9 }}
-                  custom={index}
-                >
-                  {item.icon}
-                </StyledIconButton>
-              ))}
-              <motion.div
-                variants={textVariants}
-                custom={socialLinks.length}
-                whileHover={{ scale: 1.05 }}
+          <Subtitle theme={theme}>Hi, my name is</Subtitle>
+          <Title theme={theme}>Siddhesh Anand Kadam</Title>
+          <Description theme={theme}>
+            I'm a Software Engineer passionate about creating elegant solutions to complex problems.
+            I recently graduated from Kaveri College and I'm always eager to learn and grow in the
+            ever-evolving world of technology.
+          </Description>
+        </motion.div>
+
+        <motion.div
+          initial={{ y: 20, opacity: 0 }}
+          animate={{ y: 0, opacity: 1 }}
+          transition={{ delay: 0.4 }}
+        >
+          <Stack direction="row" spacing={2}>
+            {socialLinks.map((item, index) => (
+              <StyledIconButton
+                key={item.label}
+                component="a"
+                href={item.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                whileHover={{ y: -5 }}
+                whileTap={{ scale: 0.95 }}
+                theme={theme}
               >
-                <Chip 
-                  icon={<LocationOnIcon />} 
-                  label="Pune, Maharashtra" 
-                  sx={{ 
-                    bgcolor: 'background.paper', 
-                    color: 'primary.main', 
-                    fontWeight: 500,
-                    '&:hover': {
-                      bgcolor: 'background.paper',
-                      boxShadow: 2,
-                    }
-                  }} 
-                />
-              </motion.div>
-            </Stack>
-          </motion.div>
+                {item.icon}
+              </StyledIconButton>
+            ))}
+          </Stack>
         </motion.div>
       </Box>
-    </Box>
+    </Section>
   );
-} 
+};
+
+export default Home; 

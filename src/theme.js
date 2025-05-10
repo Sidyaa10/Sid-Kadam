@@ -14,16 +14,13 @@ const theme = createTheme({
       default: '#CAEDB8', // Tea Green
       paper: '#EDE490', // Khaki
     },
-    accent: {
-      main: '#CD9B59', // Aztec Gold
-    },
     text: {
       primary: '#56694F', // Ebony
       secondary: '#963F2E', // Chestnut
     },
   },
   typography: {
-    fontFamily: 'Poppins, Arial, sans-serif',
+    fontFamily: '"Fira Code", monospace',
     h1: { fontWeight: 700 },
     h2: { fontWeight: 600 },
     h3: { fontWeight: 600 },
@@ -43,4 +40,19 @@ const theme = createTheme({
   },
 });
 
-export default theme; 
+// Add custom properties for styled-components
+const styledTheme = {
+  ...theme,
+  colors: {
+    primary: theme.palette.primary.main,
+    secondary: theme.palette.secondary.main,
+    background: theme.palette.background.default,
+    paper: theme.palette.background.paper,
+    text: {
+      primary: theme.palette.text.primary,
+      secondary: theme.palette.text.secondary,
+    },
+  },
+};
+
+export default styledTheme; 

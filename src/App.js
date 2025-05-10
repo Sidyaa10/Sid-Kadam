@@ -1,25 +1,42 @@
 import React from 'react';
-import { Box } from '@mui/material';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import { AnimatePresence } from 'framer-motion';
+import { Box, Typography } from '@mui/material';
+import { BrowserRouter as Router } from 'react-router-dom';
 import Navbar from './components/Navbar';
-import Home from './pages/Home';
-import About from './pages/About';
-import Skills from './pages/Skills';
-import Projects from './pages/Projects';
-import Experience from './pages/Experience';
-import Contact from './pages/Contact';
 import CustomCursor from './components/CustomCursor';
-import AnimatedSection from './components/AnimatedSection';
+import OnePageSections from './components/OnePageSections';
 import styled from 'styled-components';
 
 const AppContainer = styled.div`
-  font-family: 'Poppins', sans-serif;
+  font-family: 'Fira Code', monospace;
   overflow-x: hidden;
-  background: #ffffff;
-  color: #000000;
+  background: #CAEDB8;
+  color: #56694F;
   min-height: 100vh;
 `;
+
+// Error boundary component to catch and display errors
+class ErrorBoundary extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = { hasError: false, error: null };
+  }
+
+  static getDerivedStateFromError(error) {
+    return { hasError: true, error };
+  }
+
+  render() {
+    if (this.state.hasError) {
+      return (
+        <Box sx={{ p: 2, bgcolor: '#ffebee', color: '#c62828', borderRadius: 1 }}>
+          <Typography variant="h6">Error in {this.props.sectionName}:</Typography>
+          <Typography variant="body2">{this.state.error?.toString()}</Typography>
+        </Box>
+      );
+    }
+    return this.props.children;
+  }
+}
 
 function App() {
   return (
@@ -27,18 +44,9 @@ function App() {
       <AppContainer>
         <CustomCursor />
         <Navbar />
-        <Box sx={{ bgcolor: 'background.default', minHeight: '100vh' }}>
-          <AnimatePresence mode="wait">
-            <Routes>
-              <Route path="/" element={<Home />} />
-              <Route path="/about" element={<About />} />
-              <Route path="/skills" element={<Skills />} />
-              <Route path="/projects" element={<Projects />} />
-              <Route path="/experience" element={<Experience />} />
-              <Route path="/contact" element={<Contact />} />
-            </Routes>
-          </AnimatePresence>
-        </Box>
+        <ErrorBoundary sectionName="OnePageSections">
+          <OnePageSections />
+        </ErrorBoundary>
       </AppContainer>
     </Router>
   );

@@ -15,7 +15,7 @@ const StyledPaper = styled(motion(Paper))`
     left: 0;
     right: 0;
     height: 4px;
-    background: linear-gradient(90deg, ${props => props.theme.palette.primary.main}, ${props => props.theme.palette.secondary.main});
+    background: linear-gradient(90deg, ${props => props.theme.colors.primary}, ${props => props.theme.colors.secondary});
     transform: scaleX(0);
     transform-origin: left;
     transition: transform 0.6s ease;
