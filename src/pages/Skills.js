@@ -1,64 +1,57 @@
 import React from 'react';
-import { Box, Typography, Grid, Paper, Chip, useTheme } from '@mui/material';
-import { motion } from 'framer-motion';
-import CodeIcon from '@mui/icons-material/Code';
-import StorageIcon from '@mui/icons-material/Storage';
-import WebIcon from '@mui/icons-material/Web';
-import BuildIcon from '@mui/icons-material/Build';
+import { Box, Grid, Typography } from '@mui/material';
+import { ReactComponent as HtmlIcon } from '../assets/skills/html5.svg';
+import { ReactComponent as CssIcon } from '../assets/skills/css3.svg';
+import { ReactComponent as JsIcon } from '../assets/skills/javascript.svg';
+import { ReactComponent as TypeScriptIcon } from '../assets/skills/typescript.svg';
+import { ReactComponent as PhpIcon } from '../assets/skills/php.svg';
+import { ReactComponent as PythonIcon } from '../assets/skills/python.svg';
+import { ReactComponent as JavaIcon } from '../assets/skills/java.svg';
+import { ReactComponent as CIcon } from '../assets/skills/c.svg';
+import { ReactComponent as SqlIcon } from '../assets/skills/sql.svg';
+import { ReactComponent as MongoIcon } from '../assets/skills/mongodb.svg';
+import { ReactComponent as ReactIcon } from '../assets/skills/react.svg';
+import GitHubIcon from '@mui/icons-material/GitHub';
 
-const skillCategories = [
-  {
-    title: 'Programming Languages',
-    icon: <CodeIcon color="secondary" />,
-    skills: ['C Language', 'Java'],
-  },
-  {
-    title: 'Web Development',
-    icon: <WebIcon color="secondary" />,
-    skills: ['HTML', 'CSS', 'JavaScript'],
-  },
-  {
-    title: 'Database',
-    icon: <StorageIcon color="secondary" />,
-    skills: ['SQL', 'MongoDB'],
-  },
-  {
-    title: 'Tools & Technologies',
-    icon: <BuildIcon color="secondary" />,
-    skills: ['Git'],
-  },
+const skillIcons = [
+  <HtmlIcon key="html" style={{ width: 64, height: 64 }} />,
+  <CssIcon key="css" style={{ width: 64, height: 64 }} />,
+  <JsIcon key="js" style={{ width: 64, height: 64 }} />,
+  <TypeScriptIcon key="ts" style={{ width: 64, height: 64 }} />,
+  <ReactIcon key="react" style={{ width: 64, height: 64 }} />,
+  <PhpIcon key="php" style={{ width: 64, height: 64 }} />,
+  <PythonIcon key="python" style={{ width: 64, height: 64 }} />,
+  <JavaIcon key="java" style={{ width: 64, height: 64 }} />,
+  <CIcon key="c" style={{ width: 64, height: 64 }} />,
+  <SqlIcon key="sql" style={{ width: 64, height: 64 }} />,
+  <MongoIcon key="mongo" style={{ width: 64, height: 64 }} />,
+  <GitHubIcon key="git" style={{ width: 64, height: 64 }} />,
 ];
 
 export default function Skills() {
-  const theme = useTheme();
   return (
     <Box sx={{ minHeight: '80vh', bgcolor: 'background.default', py: 8 }}>
-      <motion.div
-        initial={{ opacity: 0, y: 40 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.7 }}
+      <Typography
+        variant="h3"
+        align="center"
+        sx={{
+          color: 'secondary.main',
+          fontWeight: 700,
+          letterSpacing: 2,
+          mb: 6,
+        }}
       >
-        <Typography variant="h4" color="secondary.main" fontWeight={700} align="center" gutterBottom>
           Skills
         </Typography>
-        <Grid container spacing={4} justifyContent="center" sx={{ mt: 2 }}>
-          {skillCategories.map((cat, idx) => (
-            <Grid item xs={12} sm={6} md={3} key={cat.title}>
-              <Paper sx={{ p: 3, textAlign: 'center', bgcolor: 'background.paper', boxShadow: 2 }}>
-                <Box sx={{ mb: 1, fontSize: 40 }}>{cat.icon}</Box>
-                <Typography variant="h6" color="primary.main" fontWeight={600} gutterBottom>
-                  {cat.title}
-                </Typography>
-                <Box sx={{ display: 'flex', flexDirection: 'column', gap: 1 }}>
-                  {cat.skills.map((skill) => (
-                    <Chip key={skill} label={skill} sx={{ bgcolor: 'accent.main', color: 'background.paper', fontWeight: 500 }} />
-                  ))}
-                </Box>
-              </Paper>
+      <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+        <Grid container spacing={4} justifyContent="center" alignItems="center" sx={{ maxWidth: 900 }}>
+          {skillIcons.map((icon, idx) => (
+            <Grid item xs={4} sm={3} md={2} key={idx} sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+              {icon}
             </Grid>
           ))}
         </Grid>
-      </motion.div>
+      </Box>
     </Box>
   );
 } 

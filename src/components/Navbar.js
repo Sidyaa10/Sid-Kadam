@@ -22,7 +22,10 @@ const Navbar = () => {
         transition: 'all 0.3s ease-in-out',
       }}
     >
-      <Toolbar sx={{ justifyContent: 'center' }}>
+      <Toolbar sx={{ 
+        justifyContent: 'center',
+        minHeight: { xs: 56, sm: 64 }
+      }}>
         <Typography
           variant="h6"
           sx={{
@@ -32,6 +35,7 @@ const Navbar = () => {
             flexGrow: 1,
             letterSpacing: 2,
             transition: 'color 0.3s',
+            fontSize: { xs: '1rem', sm: '1.25rem' }
           }}
         >
           Siddhesh Kadam

@@ -6,6 +6,7 @@ import Skills from '../pages/Skills';
 import Projects from '../pages/Projects';
 import Experience from '../pages/Experience';
 import Contact from '../pages/Contact';
+import Expose from '../pages/Expose';
 import ArrowBackIosNewIcon from '@mui/icons-material/ArrowBackIosNew';
 import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
 
@@ -55,6 +56,7 @@ const sections = [
   { id: 'projects', component: <ErrorBoundary sectionName="Projects"><Projects /></ErrorBoundary> },
   { id: 'experience', component: <ErrorBoundary sectionName="Experience"><Experience /></ErrorBoundary> },
   { id: 'contact', component: <ErrorBoundary sectionName="Contact"><Contact /></ErrorBoundary> },
+  { id: 'expose', component: <ErrorBoundary sectionName="Expose"><Expose /></ErrorBoundary> },
 ];
 
 const OnePageSections = () => {
@@ -83,7 +85,7 @@ const OnePageSections = () => {
     const container = containerRef.current;
     if (container) {
       container.scrollTo({
-        left: idx * window.innerWidth,
+        top: idx * window.innerHeight,
         behavior: 'smooth',
       });
     }
@@ -99,24 +101,24 @@ const OnePageSections = () => {
 
   // Sync scroll position with dot navigation
   const handleScroll = (e) => {
-    const idx = Math.round(e.target.scrollLeft / window.innerWidth);
+    const idx = Math.round(e.target.scrollTop / window.innerHeight);
     if (idx !== current) setCurrent(idx);
   };
 
   return (
     <Box sx={{ position: 'relative', width: '100vw', height: '100vh', overflow: 'hidden' }}>
-      {/* Horizontal scrollable container */}
+      {/* Vertical scrollable container */}
       <Box
         ref={containerRef}
         onScroll={handleScroll}
         sx={{
           display: 'flex',
-          flexDirection: 'row',
+          flexDirection: 'column',
           width: '100vw',
           height: '100vh',
-          overflowX: 'auto',
-          overflowY: 'hidden',
-          scrollSnapType: 'x mandatory',
+          overflowY: 'auto',
+          overflowX: 'hidden',
+          scrollSnapType: 'y mandatory',
           scrollBehavior: 'smooth',
         }}
       >
@@ -161,14 +163,14 @@ const OnePageSections = () => {
       {/* Arrow navigation */}
       <IconButton
         onClick={handlePrev}
-        sx={{ position: 'absolute', top: '50%', left: 16, zIndex: 10, bgcolor: 'background.paper', opacity: current === 0 ? 0.3 : 1 }}
+        sx={{ position: 'absolute', left: '50%', top: 16, zIndex: 10, bgcolor: 'background.paper', opacity: current === 0 ? 0.3 : 1, transform: 'translateX(-50%) rotate(-90deg)' }}
         disabled={current === 0}
       >
         <ArrowBackIosNewIcon />
       </IconButton>
       <IconButton
         onClick={handleNext}
-        sx={{ position: 'absolute', top: '50%', right: 16, zIndex: 10, bgcolor: 'background.paper', opacity: current === sections.length - 1 ? 0.3 : 1 }}
+        sx={{ position: 'absolute', left: '50%', bottom: 16, zIndex: 10, bgcolor: 'background.paper', opacity: current === sections.length - 1 ? 0.3 : 1, transform: 'translateX(-50%) rotate(90deg)' }}
         disabled={current === sections.length - 1}
       >
         <ArrowForwardIosIcon />

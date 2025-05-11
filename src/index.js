@@ -13,7 +13,7 @@ root.render(
   <React.StrictMode>
     <MuiThemeProvider theme={theme}>
       <StyledThemeProvider theme={theme}>
-        <App />
+      <App />
       </StyledThemeProvider>
     </MuiThemeProvider>
   </React.StrictMode>

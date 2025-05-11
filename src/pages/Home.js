@@ -19,6 +19,9 @@ const Section = styled(motion.div)`
   flex-direction: column;
   justify-content: center;
   padding: 100px 0;
+  @media (max-width: 768px) {
+    padding: 80px 0;
+  }
 `;
 
 const Title = styled(Typography)`
@@ -26,20 +29,34 @@ const Title = styled(Typography)`
   font-size: clamp(40px, 8vw, 80px);
   font-weight: 600;
   margin-bottom: 20px;
+  text-align: center;
+  @media (max-width: 768px) {
+    font-size: clamp(32px, 6vw, 60px);
+  }
 `;
 
 const Subtitle = styled(Typography)`
   color: ${({ theme }) => theme.colors.primary};
   font-size: clamp(20px, 4vw, 40px);
   margin-bottom: 30px;
+  text-align: center;
+  @media (max-width: 768px) {
+    font-size: clamp(18px, 3vw, 32px);
+  }
 `;
 
 const Description = styled(Typography)`
   color: ${({ theme }) => theme.colors.text.primary};
   font-size: clamp(16px, 2vw, 20px);
   max-width: 600px;
-  margin-bottom: 50px;
+  margin: 0 auto 50px;
   line-height: 1.6;
+  text-align: center;
+  padding: 0 20px;
+  @media (max-width: 768px) {
+    font-size: clamp(14px, 1.8vw, 18px);
+    padding: 0 16px;
+  }
 `;
 
 const Pfp = styled.img`
@@ -49,6 +66,10 @@ const Pfp = styled.img`
   object-fit: cover;
   margin-bottom: 32px;
   box-shadow: 0 4px 16px rgba(0,0,0,0.08);
+  @media (max-width: 768px) {
+    width: 150px;
+    height: 150px;
+  }
 `;
 
 const socialLinks = [

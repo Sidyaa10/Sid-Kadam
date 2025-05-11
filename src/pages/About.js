@@ -3,6 +3,17 @@ import { Box, Typography, Paper, Stack, Chip, useTheme } from '@mui/material';
 import { motion } from 'framer-motion';
 import StarIcon from '@mui/icons-material/Star';
 import styled from 'styled-components';
+import { ReactComponent as HtmlIcon } from '../assets/skills/html5.svg';
+import { ReactComponent as CssIcon } from '../assets/skills/css3.svg';
+import { ReactComponent as JsIcon } from '../assets/skills/javascript.svg';
+import { ReactComponent as JavaIcon } from '../assets/skills/java.svg';
+import { ReactComponent as CIcon } from '../assets/skills/c.svg';
+import { ReactComponent as SqlIcon } from '../assets/skills/sql.svg';
+import { ReactComponent as MongoIcon } from '../assets/skills/mongodb.svg';
+import GitHubIcon from '@mui/icons-material/GitHub';
+import { ReactComponent as PhpIcon } from '../assets/skills/php.svg';
+import { ReactComponent as PythonIcon } from '../assets/skills/python.svg';
+import { ReactComponent as TypeScriptIcon } from '../assets/skills/typescript.svg';
 
 const StyledPaper = styled(motion(Paper))`
   position: relative;
@@ -68,8 +79,8 @@ export default function About() {
         alignItems: 'center', 
         justifyContent: 'center', 
         bgcolor: 'background.default',
-        py: 4,
-        px: 2
+        py: { xs: 3, md: 4 },
+        px: { xs: 2, md: 4 }
       }}
     >
       <StyledPaper
@@ -79,10 +90,11 @@ export default function About() {
         sx={{ 
           maxWidth: 800, 
           mx: 'auto', 
-          p: { xs: 3, md: 4 }, 
+          p: { xs: 2, sm: 3, md: 4 }, 
           bgcolor: 'background.paper', 
           boxShadow: 3,
-          borderRadius: 2
+          borderRadius: 2,
+          width: '100%'
         }}
       >
         <motion.div
@@ -98,6 +110,7 @@ export default function About() {
               gutterBottom
               sx={{ 
                 position: 'relative',
+                fontSize: { xs: '1.75rem', sm: '2rem', md: '2.125rem' },
                 '&::after': {
                   content: '""',
                   position: 'absolute',
@@ -120,7 +133,8 @@ export default function About() {
               sx={{ 
                 mb: 3,
                 lineHeight: 1.8,
-                fontSize: '1.1rem'
+                fontSize: { xs: '1rem', sm: '1.1rem' },
+                textAlign: { xs: 'left', sm: 'justify' }
               }}
             >
               Hi Sir/Madam, my name is Siddhesh Anand Kadam and I recently graduated from Kaveri College. I am a hard worker and always give my hundred percent on the tasks/work I've been assigned. I wish to grow my skills further and gain more experience through my next opportunity.
@@ -137,6 +151,7 @@ export default function About() {
                 mb: 2,
                 display: 'flex',
                 alignItems: 'center',
+                fontSize: { xs: '1.1rem', sm: '1.25rem' },
                 '&::before': {
                   content: '""',
                   display: 'inline-block',
@@ -159,7 +174,10 @@ export default function About() {
               spacing={1} 
               flexWrap="wrap" 
               gap={1}
-              sx={{ mb: 3 }}
+              sx={{ 
+                mb: 3,
+                justifyContent: { xs: 'center', sm: 'flex-start' }
+              }}
             >
               {['Software Development & Testing', 'Data Analytics', 'Database Management', 'Coding & Troubleshooting'].map((skill, index) => (
                 <StyledChip
@@ -170,6 +188,7 @@ export default function About() {
                   whileTap={{ scale: 0.95 }}
                   sx={{
                     bgcolor: 'background.default',
+                    fontSize: { xs: '0.875rem', sm: '1rem' },
                     '& .MuiChip-icon': {
                       color: theme.palette.secondary.main
                     }
@@ -206,25 +225,40 @@ export default function About() {
           </motion.div>
 
           <motion.div variants={itemVariants}>
-            <Stack 
-              direction="row" 
-              spacing={1} 
-              flexWrap="wrap" 
-              gap={1}
-            >
-              {['C Language', 'Java', 'HTML', 'CSS', 'JavaScript', 'SQL', 'Git', 'MongoDB'].map((skill, index) => (
-                <StyledChip
-                  key={skill}
-                  label={skill}
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }}
-                  sx={{
-                    bgcolor: 'background.default',
-                    color: theme.palette.primary.main,
-                    fontWeight: 500
-                  }}
-                />
-              ))}
+            {/* Programming Languages */}
+            <Typography variant="subtitle1" sx={{ fontWeight: 600, color: 'primary.main', mt: 2, mb: 1 }}>
+              Programming Languages
+            </Typography>
+            <Stack direction="row" spacing={1} flexWrap="wrap" gap={1} mb={2}>
+              <StyledChip icon={<CIcon style={{ width: 40, height: 40 }} />} label="" sx={{ bgcolor: 'background.default' }} />
+              <StyledChip icon={<JavaIcon style={{ width: 40, height: 40 }} />} label="" sx={{ bgcolor: 'background.default' }} />
+              <StyledChip icon={<PhpIcon style={{ width: 40, height: 40 }} />} label="" sx={{ bgcolor: 'background.default' }} />
+              <StyledChip icon={<PythonIcon style={{ width: 40, height: 40 }} />} label="" sx={{ bgcolor: 'background.default' }} />
+            </Stack>
+            {/* Web Design */}
+            <Typography variant="subtitle1" sx={{ fontWeight: 600, color: 'primary.main', mt: 2, mb: 1 }}>
+              Web Design
+            </Typography>
+            <Stack direction="row" spacing={1} flexWrap="wrap" gap={1} mb={2}>
+              <StyledChip icon={<HtmlIcon style={{ width: 40, height: 40 }} />} label="" sx={{ bgcolor: 'background.default' }} />
+              <StyledChip icon={<CssIcon style={{ width: 40, height: 40 }} />} label="" sx={{ bgcolor: 'background.default' }} />
+              <StyledChip icon={<JsIcon style={{ width: 40, height: 40 }} />} label="" sx={{ bgcolor: 'background.default' }} />
+              <StyledChip icon={<TypeScriptIcon style={{ width: 40, height: 40 }} />} label="" sx={{ bgcolor: 'background.default' }} />
+            </Stack>
+            {/* Database */}
+            <Typography variant="subtitle1" sx={{ fontWeight: 600, color: 'primary.main', mt: 2, mb: 1 }}>
+              Database
+            </Typography>
+            <Stack direction="row" spacing={1} flexWrap="wrap" gap={1} mb={2}>
+              <StyledChip icon={<SqlIcon style={{ width: 40, height: 40 }} />} label="" sx={{ bgcolor: 'background.default' }} />
+              <StyledChip icon={<MongoIcon style={{ width: 40, height: 40 }} />} label="" sx={{ bgcolor: 'background.default' }} />
+            </Stack>
+            {/* Server Tools */}
+            <Typography variant="subtitle1" sx={{ fontWeight: 600, color: 'primary.main', mt: 2, mb: 1 }}>
+              Server Tools
+            </Typography>
+            <Stack direction="row" spacing={1} flexWrap="wrap" gap={1}>
+              <StyledChip icon={<GitHubIcon style={{ width: 40, height: 40 }} />} label="" sx={{ bgcolor: 'background.default' }} />
             </Stack>
           </motion.div>
         </motion.div>

@@ -19,20 +19,20 @@ class ErrorBoundary extends React.Component {
   constructor(props) {
     super(props);
     this.state = { hasError: false, error: null };
-  }
+      }
 
   static getDerivedStateFromError(error) {
     return { hasError: true, error };
-  }
+    }
 
   render() {
     if (this.state.hasError) {
-      return (
+  return (
         <Box sx={{ p: 2, bgcolor: '#ffebee', color: '#c62828', borderRadius: 1 }}>
           <Typography variant="h6">Error in {this.props.sectionName}:</Typography>
           <Typography variant="body2">{this.state.error?.toString()}</Typography>
-        </Box>
-      );
+    </Box>
+  );
     }
     return this.props.children;
   }
