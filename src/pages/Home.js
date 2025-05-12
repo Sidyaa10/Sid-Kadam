@@ -76,7 +76,7 @@ const SocialLinks = styled(Box)`
   margin-top: 30px;
 `;
 
-const SocialIcon = styled(motion.div)`
+const SocialIcon = styled(motion.a)`
   width: clamp(32px, 5vw, 40px);
   height: clamp(32px, 5vw, 40px);
   border-radius: 50%;
@@ -86,10 +86,19 @@ const SocialIcon = styled(motion.div)`
   justify-content: center;
   cursor: pointer;
   transition: all 0.3s ease;
+  text-decoration: none;
+  color: inherit;
   &:hover {
     transform: translateY(-5px);
     background: ${({ theme }) => theme.colors.primary};
   }
+`;
+
+const SocialIconWrapper = styled(Box)`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
 `;
 
 const socialLinks = [
@@ -97,17 +106,21 @@ const socialLinks = [
     icon: <LinkedInIcon />,
     label: 'LinkedIn',
     href: 'https://www.linkedin.com/in/siddhesh-kadam-593444359/',
+    target: '_blank',
+    rel: 'noopener noreferrer'
   },
   {
     icon: <GitHubIcon />,
     label: 'GitHub',
     href: 'https://github.com/Sidyaa10',
+    target: '_blank',
+    rel: 'noopener noreferrer'
   },
   {
     icon: <EmailIcon />,
     label: 'Email',
-    href: 'mailto:siddheshkadam2018@gmail.com',
-  },
+    href: 'mailto:siddheshkadam2018@gmail.com'
+  }
 ];
 
 const Home = () => {
@@ -152,24 +165,18 @@ const Home = () => {
             I'm a Software Engineer passionate about creating elegant solutions to complex problems. I recently graduated from Kaveri College and I'm always eager to learn and grow in the ever-evolving world of technology.
           </Description>
           <SocialLinks>
-            <SocialIcon
-              whileHover={{ scale: 1.2 }}
-              whileTap={{ scale: 0.9 }}
-            >
-              <EmailIcon sx={{ color: 'white' }} />
-            </SocialIcon>
-            <SocialIcon
-              whileHover={{ scale: 1.2 }}
-              whileTap={{ scale: 0.9 }}
-            >
-              <LinkedInIcon sx={{ color: 'white' }} />
-            </SocialIcon>
-            <SocialIcon
-              whileHover={{ scale: 1.2 }}
-              whileTap={{ scale: 0.9 }}
-            >
-              <GitHubIcon sx={{ color: 'white' }} />
-            </SocialIcon>
+            {socialLinks.map((link, index) => (
+              <SocialIcon
+                key={index}
+                href={link.href}
+                target={link.target}
+                rel={link.rel}
+                whileHover={{ scale: 1.1 }}
+                whileTap={{ scale: 0.9 }}
+              >
+                {link.icon}
+              </SocialIcon>
+            ))}
           </SocialLinks>
         </Section>
       </Box>
@@ -177,4 +184,4 @@ const Home = () => {
   );
 };
 
-export default Home; 
+export default Home;
