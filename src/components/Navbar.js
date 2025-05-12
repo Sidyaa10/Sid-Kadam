@@ -20,6 +20,7 @@ const Navbar = () => {
       sx={{
         bgcolor: theme.palette.primary.main,
         transition: 'all 0.3s ease-in-out',
+        boxShadow: isScrolled ? '0 2px 8px rgba(0,0,0,0.1)' : 'none'
       }}
     >
       <Toolbar sx={{ 

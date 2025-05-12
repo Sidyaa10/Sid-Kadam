@@ -54,10 +54,6 @@ export default function Contact() {
           <Typography align="center" color="text.primary" sx={{ mb: 2 }}>
             Feel free to reach out to me via email, phone, or social media!
           </Typography>
-          {/* Placeholder for a contact form */}
-          <Box sx={{ mt: 3, textAlign: 'center', color: 'text.secondary' }}>
-            <Typography variant="body2">Contact form coming soon...</Typography>
-          </Box>
         </Paper>
       </motion.div>
     </Box>

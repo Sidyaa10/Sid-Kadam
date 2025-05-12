@@ -225,39 +225,17 @@ export default function About() {
           </motion.div>
 
           <motion.div variants={itemVariants}>
-            {/* Programming Languages */}
-            <Typography variant="subtitle1" sx={{ fontWeight: 600, color: 'primary.main', mt: 2, mb: 1 }}>
-              Programming Languages
-            </Typography>
-            <Stack direction="row" spacing={1} flexWrap="wrap" gap={1} mb={2}>
+            <Stack direction="row" spacing={1} flexWrap="wrap" gap={1}>
               <StyledChip icon={<CIcon style={{ width: 40, height: 40 }} />} label="" sx={{ bgcolor: 'background.default' }} />
               <StyledChip icon={<JavaIcon style={{ width: 40, height: 40 }} />} label="" sx={{ bgcolor: 'background.default' }} />
               <StyledChip icon={<PhpIcon style={{ width: 40, height: 40 }} />} label="" sx={{ bgcolor: 'background.default' }} />
               <StyledChip icon={<PythonIcon style={{ width: 40, height: 40 }} />} label="" sx={{ bgcolor: 'background.default' }} />
-            </Stack>
-            {/* Web Design */}
-            <Typography variant="subtitle1" sx={{ fontWeight: 600, color: 'primary.main', mt: 2, mb: 1 }}>
-              Web Design
-            </Typography>
-            <Stack direction="row" spacing={1} flexWrap="wrap" gap={1} mb={2}>
               <StyledChip icon={<HtmlIcon style={{ width: 40, height: 40 }} />} label="" sx={{ bgcolor: 'background.default' }} />
               <StyledChip icon={<CssIcon style={{ width: 40, height: 40 }} />} label="" sx={{ bgcolor: 'background.default' }} />
               <StyledChip icon={<JsIcon style={{ width: 40, height: 40 }} />} label="" sx={{ bgcolor: 'background.default' }} />
               <StyledChip icon={<TypeScriptIcon style={{ width: 40, height: 40 }} />} label="" sx={{ bgcolor: 'background.default' }} />
-            </Stack>
-            {/* Database */}
-            <Typography variant="subtitle1" sx={{ fontWeight: 600, color: 'primary.main', mt: 2, mb: 1 }}>
-              Database
-            </Typography>
-            <Stack direction="row" spacing={1} flexWrap="wrap" gap={1} mb={2}>
               <StyledChip icon={<SqlIcon style={{ width: 40, height: 40 }} />} label="" sx={{ bgcolor: 'background.default' }} />
               <StyledChip icon={<MongoIcon style={{ width: 40, height: 40 }} />} label="" sx={{ bgcolor: 'background.default' }} />
-            </Stack>
-            {/* Server Tools */}
-            <Typography variant="subtitle1" sx={{ fontWeight: 600, color: 'primary.main', mt: 2, mb: 1 }}>
-              Server Tools
-            </Typography>
-            <Stack direction="row" spacing={1} flexWrap="wrap" gap={1}>
               <StyledChip icon={<GitHubIcon style={{ width: 40, height: 40 }} />} label="" sx={{ bgcolor: 'background.default' }} />
             </Stack>
           </motion.div>
@@ -265,4 +243,4 @@ export default function About() {
       </StyledPaper>
     </Box>
   );
-} 
+}

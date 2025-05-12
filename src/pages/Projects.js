@@ -1,7 +1,12 @@
 import React from 'react';
-import { Box, Typography, Paper, Chip, Stack, useTheme } from '@mui/material';
+import { Box, Typography, Paper, Chip, Stack, useTheme, Grid } from '@mui/material';
 import { motion } from 'framer-motion';
 import WebIcon from '@mui/icons-material/Web';
+import { ReactComponent as HtmlIcon } from '../assets/skills/html5.svg';
+import { ReactComponent as CssIcon } from '../assets/skills/css3.svg';
+import { ReactComponent as JsIcon } from '../assets/skills/javascript.svg';
+import { ReactComponent as PhpIcon } from '../assets/skills/php.svg';
+import { ReactComponent as SqlIcon } from '../assets/skills/sql.svg';
 
 export default function Projects() {
   const theme = useTheme();
@@ -77,13 +82,40 @@ export default function Projects() {
           >
             <b>Technology:</b>
           </Typography>
-          <Stack direction="row" spacing={1} mb={2}>
-            <Chip label="HTML" sx={{ bgcolor: 'accent.main', color: 'background.paper' }} />
-            <Chip label="CSS" sx={{ bgcolor: 'accent.main', color: 'background.paper' }} />
-            <Chip label="JavaScript" sx={{ bgcolor: 'accent.main', color: 'background.paper' }} />
-            <Chip label="PHP" sx={{ bgcolor: 'accent.main', color: 'background.paper' }} />
-            <Chip label="PostgreSQL" sx={{ bgcolor: 'accent.main', color: 'background.paper' }} />
-          </Stack>
+          <Box sx={{ mb: 2 }}>
+            <Grid container spacing={2} alignItems="center" justifyContent="flex-start">
+              <Grid item>
+                <Box sx={{ display: 'flex', alignItems: 'center', bgcolor: '#e9f5e9', borderRadius: '12px', p: 1 }}>
+                  <HtmlIcon style={{ width: 32, height: 32 }} />
+                  <Typography variant="body2" sx={{ ml: 1, color: 'text.primary' }}>HTML</Typography>
+                </Box>
+              </Grid>
+              <Grid item>
+                <Box sx={{ display: 'flex', alignItems: 'center', bgcolor: '#e9f5e9', borderRadius: '12px', p: 1 }}>
+                  <CssIcon style={{ width: 32, height: 32 }} />
+                  <Typography variant="body2" sx={{ ml: 1, color: 'text.primary' }}>CSS</Typography>
+                </Box>
+              </Grid>
+              <Grid item>
+                <Box sx={{ display: 'flex', alignItems: 'center', bgcolor: '#e9f5e9', borderRadius: '12px', p: 1 }}>
+                  <JsIcon style={{ width: 32, height: 32 }} />
+                  <Typography variant="body2" sx={{ ml: 1, color: 'text.primary' }}>JavaScript</Typography>
+                </Box>
+              </Grid>
+              <Grid item>
+                <Box sx={{ display: 'flex', alignItems: 'center', bgcolor: '#e9f5e9', borderRadius: '12px', p: 1 }}>
+                  <PhpIcon style={{ width: 32, height: 32 }} />
+                  <Typography variant="body2" sx={{ ml: 1, color: 'text.primary' }}>PHP</Typography>
+                </Box>
+              </Grid>
+              <Grid item>
+                <Box sx={{ display: 'flex', alignItems: 'center', bgcolor: '#e9f5e9', borderRadius: '12px', p: 1 }}>
+                  <SqlIcon style={{ width: 32, height: 32 }} />
+                  <Typography variant="body2" sx={{ ml: 1, color: 'text.primary' }}>PostgreSQL</Typography>
+                </Box>
+              </Grid>
+            </Grid>
+          </Box>
           <ul style={{ color: theme.palette.text.primary, marginLeft: 20 }}>
             <li>A fully functional online platform for furniture stores that streamlines operations and improves customer experience.</li>
             <li>Centralized management of customer data, inventory, and sales processes.</li>

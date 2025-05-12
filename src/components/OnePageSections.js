@@ -7,8 +7,7 @@ import Projects from '../pages/Projects';
 import Experience from '../pages/Experience';
 import Contact from '../pages/Contact';
 import Expose from '../pages/Expose';
-import ArrowBackIosNewIcon from '@mui/icons-material/ArrowBackIosNew';
-import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
+
 
 // Error boundary component to catch and display errors
 class ErrorBoundary extends React.Component {
@@ -43,51 +42,86 @@ const FallbackSection = ({ sectionName }) => (
 
 // Safe component wrapper to handle missing components
 const SafeComponent = ({ Component, fallback, ...props }) => {
-  if (!Component) {
+  if (!Component || typeof Component !== 'function') {
     return fallback;
   }
   return <Component {...props} />;
 };
 
 const sections = [
-  { id: 'home', component: <ErrorBoundary sectionName="Home"><Home /></ErrorBoundary> },
-  { id: 'about', component: <ErrorBoundary sectionName="About"><About /></ErrorBoundary> },
-  { id: 'skills', component: <ErrorBoundary sectionName="Skills"><Skills /></ErrorBoundary> },
-  { id: 'projects', component: <ErrorBoundary sectionName="Projects"><Projects /></ErrorBoundary> },
-  { id: 'experience', component: <ErrorBoundary sectionName="Experience"><Experience /></ErrorBoundary> },
-  { id: 'contact', component: <ErrorBoundary sectionName="Contact"><Contact /></ErrorBoundary> },
-  { id: 'expose', component: <ErrorBoundary sectionName="Expose"><Expose /></ErrorBoundary> },
+  { id: 'home', component: Home, name: "Home" },
+  { id: 'about', component: About, name: "About" },
+  { id: 'skills', component: Skills, name: "Skills" },
+  { id: 'projects', component: Projects, name: "Projects" },
+  { id: 'experience', component: Experience, name: "Experience" },
+  { id: 'contact', component: Contact, name: "Contact" },
+  { id: 'expose', component: Expose, name: "Expose" },
 ];
 
 const OnePageSections = () => {
   const containerRef = useRef(null);
   const [current, setCurrent] = useState(0);
+  const [isScrolling, setIsScrolling] = useState(false);
 
-  // Ensure the container always fills the viewport
   useEffect(() => {
+    const container = containerRef.current;
+    if (!container) return;
+
+    // Enable smooth scrolling
+    container.style.scrollBehavior = 'smooth';
+    document.body.style.overflowY = 'hidden';
+
     const handleResize = () => {
-      if (containerRef.current) {
-        containerRef.current.childNodes.forEach((child) => {
-          if (child.style) {
-            child.style.width = window.innerWidth + 'px';
-            child.style.height = window.innerHeight + 'px';
-          }
-        });
+      // Update viewport dimensions
+      document.documentElement.style.setProperty('--vh', `${window.innerHeight * 0.01}px`);
+    };
+
+    const handleScroll = () => {
+      setIsScrolling(true);
+      
+      // Debounce scroll end
+      setTimeout(() => {
+        setIsScrolling(false);
+      }, 300);
+
+      // Calculate current section based on scroll position
+      const scrollPosition = container.scrollTop;
+      const totalHeight = container.scrollHeight;
+      const viewportHeight = window.innerHeight;
+      const sectionCount = sections.length;
+      
+      // Calculate which section is most visible
+      const newCurrent = Math.floor((scrollPosition / (totalHeight - viewportHeight)) * sectionCount);
+      
+      if (newCurrent !== current && newCurrent >= 0 && newCurrent < sectionCount) {
+        setCurrent(newCurrent);
       }
     };
-    window.addEventListener('resize', handleResize);
+
+    // Initialize dimensions
     handleResize();
-    return () => window.removeEventListener('resize', handleResize);
-  }, []);
+
+    // Add event listeners
+    window.addEventListener('resize', handleResize);
+    container.addEventListener('scroll', handleScroll);
+
+    // Cleanup
+    return () => {
+      window.removeEventListener('resize', handleResize);
+      container.removeEventListener('scroll', handleScroll);
+      document.body.style.overflowY = 'auto';
+    };
+  }, [current]);
 
   const scrollToSection = (idx) => {
-    setCurrent(idx);
     const container = containerRef.current;
     if (container) {
       container.scrollTo({
         top: idx * window.innerHeight,
         behavior: 'smooth',
       });
+      // Update current state after scroll animation completes
+      setTimeout(() => setCurrent(idx), 500);
     }
   };
 
@@ -99,84 +133,84 @@ const OnePageSections = () => {
     if (current < sections.length - 1) scrollToSection(current + 1);
   };
 
-  // Sync scroll position with dot navigation
-  const handleScroll = (e) => {
-    const idx = Math.round(e.target.scrollTop / window.innerHeight);
-    if (idx !== current) setCurrent(idx);
-  };
-
   return (
     <Box sx={{ position: 'relative', width: '100vw', height: '100vh', overflow: 'hidden' }}>
       {/* Vertical scrollable container */}
       <Box
         ref={containerRef}
-        onScroll={handleScroll}
         sx={{
-          display: 'flex',
-          flexDirection: 'column',
-          width: '100vw',
-          height: '100vh',
-          overflowY: 'auto',
-          overflowX: 'hidden',
-          scrollSnapType: 'y mandatory',
+          position: 'absolute',
+          top: 0,
+          left: 0,
+          width: '100%',
+          height: '100%',
+          overflow: 'auto',
           scrollBehavior: 'smooth',
+          msOverflowStyle: 'none', // Hide scrollbar in IE and Edge
+          scrollbarWidth: 'none', // Hide scrollbar in Firefox
+          '&::-webkit-scrollbar': {
+            display: 'none', // Hide scrollbar in Chrome, Safari, and Opera
+          },
         }}
       >
-        {sections.map((section, idx) => (
+        {sections.map((Section, idx) => (
           <Box
-            key={section.id}
-            id={section.id}
+            key={idx}
             sx={{
-              width: '100vw',
-              height: '100vh',
-              flexShrink: 0,
-              scrollSnapAlign: 'start',
+              width: '100%',
+              minHeight: '100vh',
+              position: 'relative',
+              overflow: 'visible',
+              paddingTop: idx === 0 ? 0 : '40px',
+              paddingBottom: idx === sections.length - 1 ? '80px' : '40px',
               display: 'flex',
               alignItems: 'center',
               justifyContent: 'center',
-              position: 'relative',
-              overflow: 'auto',
+              background: 'transparent',
+              transition: 'opacity 0.5s ease-in-out',
             }}
           >
-            {section.component}
+            <Box sx={{ maxWidth: '1200px', width: '100%', px: 4 }}>
+              <ErrorBoundary sectionName={Section.name}>
+                <SafeComponent Component={Section.component} fallback={<FallbackSection sectionName={Section.name} />} />
+              </ErrorBoundary>
+            </Box>
           </Box>
         ))}
       </Box>
-      {/* Vertical dot navigation */}
-      <Box sx={{ position: 'fixed', top: '50%', right: 24, transform: 'translateY(-50%)', display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 2, zIndex: 20 }}>
-        {sections.map((section, idx) => (
-          <IconButton
-            key={section.id}
-            size="small"
+
+      {/* Navigation Dots */}
+      <Box
+        sx={{
+          position: 'fixed',
+          right: 20,
+          top: '50%',
+          transform: 'translateY(-50%)',
+          zIndex: 1000,
+          display: 'flex',
+          flexDirection: 'column',
+          alignItems: 'center',
+          gap: 1
+        }}
+      >
+        {sections.map((_, idx) => (
+          <Button
+            key={idx}
             onClick={() => scrollToSection(idx)}
+            variant={current === idx ? 'contained' : 'outlined'}
             sx={{
-              width: 16,
-              height: 16,
-              bgcolor: idx === current ? 'primary.main' : 'grey.400',
+              minWidth: 32,
+              minHeight: 32,
               borderRadius: '50%',
-              mb: 1,
-              transition: 'background 0.3s',
+              p: 0
             }}
-          />
+          >
+            {idx + 1}
+          </Button>
         ))}
       </Box>
-      {/* Arrow navigation */}
-      <IconButton
-        onClick={handlePrev}
-        sx={{ position: 'absolute', left: '50%', top: 16, zIndex: 10, bgcolor: 'background.paper', opacity: current === 0 ? 0.3 : 1, transform: 'translateX(-50%) rotate(-90deg)' }}
-        disabled={current === 0}
-      >
-        <ArrowBackIosNewIcon />
-      </IconButton>
-      <IconButton
-        onClick={handleNext}
-        sx={{ position: 'absolute', left: '50%', bottom: 16, zIndex: 10, bgcolor: 'background.paper', opacity: current === sections.length - 1 ? 0.3 : 1, transform: 'translateX(-50%) rotate(90deg)' }}
-        disabled={current === sections.length - 1}
-      >
-        <ArrowForwardIosIcon />
-      </IconButton>
     </Box>
   );
 };
 
-export default OnePageSections; 
+export default OnePageSections;

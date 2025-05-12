@@ -9,7 +9,7 @@ import InterestsIcon from '@mui/icons-material/SportsCricket';
 export default function Experience() {
   const theme = useTheme();
   return (
-    <Box sx={{ minHeight: '80vh', bgcolor: 'background.default', py: 8, pt: 16 }}>
+    <Box sx={{ minHeight: '80vh', bgcolor: 'background.default', py: 8 }}>
       <motion.div
         initial={{ opacity: 0, y: 40 }}
         animate={{ opacity: 1, y: 0 }}

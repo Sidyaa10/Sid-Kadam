@@ -13,20 +13,33 @@ import { ReactComponent as MongoIcon } from '../assets/skills/mongodb.svg';
 import { ReactComponent as ReactIcon } from '../assets/skills/react.svg';
 import GitHubIcon from '@mui/icons-material/GitHub';
 
-const skillIcons = [
-  <HtmlIcon key="html" style={{ width: 64, height: 64 }} />,
-  <CssIcon key="css" style={{ width: 64, height: 64 }} />,
-  <JsIcon key="js" style={{ width: 64, height: 64 }} />,
-  <TypeScriptIcon key="ts" style={{ width: 64, height: 64 }} />,
-  <ReactIcon key="react" style={{ width: 64, height: 64 }} />,
-  <PhpIcon key="php" style={{ width: 64, height: 64 }} />,
-  <PythonIcon key="python" style={{ width: 64, height: 64 }} />,
-  <JavaIcon key="java" style={{ width: 64, height: 64 }} />,
-  <CIcon key="c" style={{ width: 64, height: 64 }} />,
-  <SqlIcon key="sql" style={{ width: 64, height: 64 }} />,
-  <MongoIcon key="mongo" style={{ width: 64, height: 64 }} />,
-  <GitHubIcon key="git" style={{ width: 64, height: 64 }} />,
-];
+// Grouped skills by category
+const skillGroups = {
+  'Programming Languages': [
+    <CIcon key="c" style={{ width: 64, height: 64 }} />,
+    <JavaIcon key="java" style={{ width: 64, height: 64 }} />,
+    <PhpIcon key="php" style={{ width: 64, height: 64 }} />,
+    <PythonIcon key="python" style={{ width: 64, height: 64 }} />
+  ],
+  'Web Design': [
+    <HtmlIcon key="html" style={{ width: 64, height: 64 }} />,
+    <CssIcon key="css" style={{ width: 64, height: 64 }} />,
+    <JsIcon key="js" style={{ width: 64, height: 64 }} />,
+    <TypeScriptIcon key="ts" style={{ width: 64, height: 64 }} />
+  ],
+  'Database': [
+    <SqlIcon key="sql" style={{ width: 64, height: 64 }} />,
+    <MongoIcon key="mongo" style={{ width: 64, height: 64 }} />
+  ],
+  'Server Tools': [
+    <GitHubIcon key="git" style={{ width: 64, height: 64 }} />
+  ],
+  'Frameworks': [
+    <ReactIcon key="react" style={{ width: 64, height: 64 }} />
+  ]
+};
+
+// Removed the unused skillIcons array
 
 export default function Skills() {
   return (
@@ -41,17 +54,44 @@ export default function Skills() {
           mb: 6,
         }}
       >
-          Skills
-        </Typography>
-      <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-        <Grid container spacing={4} justifyContent="center" alignItems="center" sx={{ maxWidth: 900 }}>
-          {skillIcons.map((icon, idx) => (
-            <Grid item xs={4} sm={3} md={2} key={idx} sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-              {icon}
+        Skills
+      </Typography>
+      <Box sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', px: 2 }}>
+        <Grid container spacing={4} justifyContent="center" alignItems="center" sx={{ maxWidth: 1200 }}>
+          {Object.entries(skillGroups).map(([category, icons]) => (
+            <Grid item xs={12} sm={6} md={4} key={category}>
+              <Box sx={{ mb: 4 }}>
+                <Typography 
+                  variant="h5" 
+                  sx={{ 
+                    color: 'text.primary',
+                    fontWeight: 600,
+                    mb: 3,
+                    pl: 2,
+                    position: 'relative',
+                    '&:before': {
+                      content: '"•"',
+                      position: 'absolute',
+                      left: 0,
+                      color: 'secondary.main',
+                      fontSize: '1.5rem'
+                    }
+                  }}
+                >
+                  {category}
+                </Typography>
+                <Grid container spacing={2} justifyContent="center" alignItems="center">
+                  {icons.map((icon, idx) => (
+                    <Grid item xs={4} sm={3} md={2} key={idx} sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                      {icon}
+                    </Grid>
+                  ))}
+                </Grid>
+              </Box>
             </Grid>
           ))}
         </Grid>
       </Box>
     </Box>
   );
-} 
+}
