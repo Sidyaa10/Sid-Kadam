@@ -36,7 +36,7 @@ const Navbar = () => {
             flexGrow: 1,
             letterSpacing: 2,
             transition: 'color 0.3s',
-            fontSize: { xs: '1rem', sm: '1.25rem' }
+            fontSize: 'clamp(1rem, 3vw, 1.5rem)'
           }}
         >
           Siddhesh Kadam

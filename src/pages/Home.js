@@ -19,7 +19,7 @@ const Section = styled(motion.div)`
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  padding: 100px 0;
+  padding: clamp(80px, 10vh, 120px) 0;
   @media (max-width: 768px) {
     padding: 80px 0;
   }
@@ -27,7 +27,7 @@ const Section = styled(motion.div)`
 
 const Title = styled(Typography)`
   color: ${({ theme }) => theme.colors.secondary};
-  font-size: clamp(40px, 8vw, 80px);
+  font-size: clamp(32px, 8vw, 80px);
   font-weight: 600;
   margin-bottom: 20px;
   @media (max-width: 768px) {
@@ -37,7 +37,7 @@ const Title = styled(Typography)`
 
 const Subtitle = styled(Typography)`
   color: ${({ theme }) => theme.colors.primary};
-  font-size: clamp(20px, 4vw, 40px);
+  font-size: clamp(18px, 4vw, 40px);
   margin-bottom: 30px;
   @media (max-width: 768px) {
     font-size: clamp(18px, 3vw, 32px);
@@ -46,7 +46,7 @@ const Subtitle = styled(Typography)`
 
 const Description = styled(Typography)`
   color: ${({ theme }) => theme.colors.text.primary};
-  font-size: clamp(16px, 2vw, 20px);
+  font-size: clamp(14px, 2vw, 20px);
   max-width: 600px;
   margin: 0 auto;
   text-align: center;
@@ -56,8 +56,8 @@ const Description = styled(Typography)`
 `;
 
 const ProfileImage = styled(motion.img)`
-  width: 200px;
-  height: 200px;
+  width: clamp(150px, 20vw, 200px);
+  height: clamp(150px, 20vw, 200px);
   border-radius: 50%;
   object-fit: cover;
   margin: 20px auto;
@@ -77,8 +77,8 @@ const SocialLinks = styled(Box)`
 `;
 
 const SocialIcon = styled(motion.div)`
-  width: 40px;
-  height: 40px;
+  width: clamp(32px, 5vw, 40px);
+  height: clamp(32px, 5vw, 40px);
   border-radius: 50%;
   background: ${({ theme }) => theme.colors.secondary};
   display: flex;

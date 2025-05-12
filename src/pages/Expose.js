@@ -14,7 +14,7 @@ export default function Expose() {
         flexDirection: 'column',
         alignItems: 'center',
         margin: 0,
-        padding: 0,
+        padding: '0 1rem',
         boxSizing: 'border-box',
       }}
     >
@@ -23,7 +23,7 @@ export default function Expose() {
           color: '#963F2E',
           fontWeight: 700,
           marginBottom: '2vw',
-          fontSize: '3vw',
+          fontSize: 'clamp(2rem, 5vw, 3rem)',
           letterSpacing: 2,
           textAlign: 'center',
         }}
@@ -89,7 +89,7 @@ export default function Expose() {
           sx={{
             color: '#963F2E',
             fontWeight: 700,
-            fontSize: '1.5vw',
+            fontSize: 'clamp(1.2rem, 2vw, 1.5rem)',
             letterSpacing: 2,
             textAlign: 'center'
           }}
@@ -97,7 +97,7 @@ export default function Expose() {
           My Letterboxd Top 4
         </Typography>
         
-        <Grid container spacing={2} sx={{ width: '100%' }}>
+        <Grid container spacing={2} sx={{ width: '100%', justifyContent: 'center', flexWrap: 'nowrap' }}>
           {[
             {
               title: 'Apocalypse Now',
@@ -110,7 +110,7 @@ export default function Expose() {
               poster: 'https://i.pinimg.com/736x/ac/d4/f9/acd4f9d7a94b35391a2906edd27be4b3.jpg'
             },
             {
-              title: 'Youve Got Mail',
+              title: "You've Got Mail",
               year: '1998',
               poster: 'https://i.pinimg.com/736x/78/3d/3b/783d3b36134c54ad43c81ae8144ded5f.jpg'
             },
@@ -127,16 +127,17 @@ export default function Expose() {
                   color: '#963F2E',
                   borderRadius: '14px',
                   boxShadow: '0 2px 8px #0001',
-                  p: '1vw 1.5vw',
+                  p: '1vw 1vw',
                   fontFamily: 'Fira Code, monospace',
-                  fontSize: '1.5vw',
+                  fontSize: 'clamp(1rem, 1.5vw, 1.5rem)',
                   fontWeight: 500,
                   letterSpacing: 1,
                   textAlign: 'center',
                   display: 'flex',
                   flexDirection: 'column',
                   alignItems: 'center',
-                  gap: '0.5vw'
+                  gap: '0.3vw',
+                  minWidth: '200px'
                 }}
               >
                 {movie.poster && (
@@ -145,7 +146,7 @@ export default function Expose() {
                     alt={movie.title}
                     style={{
                       width: '100%',
-                      height: '320px',
+                      height: 'clamp(200px, 32vw, 320px)',
                       objectFit: 'cover',
                       borderRadius: '12px',
                       marginBottom: '1vw'
@@ -167,7 +168,7 @@ export default function Expose() {
             gap: '0.5vw'
           }}
         >
-          <LetterboxdIcon style={{ width: '144px', height: '144px' }} />
+          <LetterboxdIcon style={{ width: 'clamp(48px, 10vw, 144px)', height: 'clamp(48px, 10vw, 144px)' }} />
           <Typography
             variant="body2"
             sx={{
