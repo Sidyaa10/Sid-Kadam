@@ -1,6 +1,7 @@
 import React from 'react';
 import { Box, Typography, Grid, useTheme } from '@mui/material';
 import { ReactComponent as LetterboxdIcon } from '../assets/letterboxd-logo.svg';
+import { ReactComponent as ValorantIcon } from '../assets/valorant.svg';
 
 export default function Expose() {
   return (
@@ -71,7 +72,10 @@ export default function Expose() {
           maxWidth: '32vw',
         }}
       >
-        ValorantId :- NorthernBladeSid#solo
+        <Box sx={{ display: 'flex', alignItems: 'center' }}>
+          <ValorantIcon style={{ width: '24px', height: '24px' }} />
+          <span style={{ marginLeft: '-48px' }}>ValorantId :- NorthernBladeSid#solo</span>
+        </Box>
       </Box>
       
       <Box
