@@ -147,14 +147,18 @@ export default function Projects() {
                   <Typography variant="body2" sx={{ ml: 1, color: 'text.primary' }}>JavaScript</Typography>
                 </Box>
               </Grid>
-              <Grid item>
-                <Box sx={{ display: 'flex', alignItems: 'center', bgcolor: '#e9f5e9', borderRadius: '12px', p: 1 }}>
-                  <SqlIcon style={{ width: 32, height: 32 }} />
-                  <Typography variant="body2" sx={{ ml: 1, color: 'text.primary' }}>PostgreSQL</Typography>
-                </Box>
-              </Grid>
             </Grid>
           </Box>
+
+          <Typography 
+            sx={{ 
+              mb: 1,
+              fontSize: { xs: '0.875rem', sm: '1rem' },
+              fontWeight: 600
+            }}
+          >
+            🎯 Impact:
+          </Typography>
           <ul style={{ color: theme.palette.text.primary, marginLeft: 20 }}>
             <li>A fully functional online platform for furniture stores that streamlines operations and improves customer experience.</li>
             <li>Centralized management of customer data, inventory, and sales processes.</li>
