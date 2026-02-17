@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useRef } from 'react';
+import React, { useCallback, useEffect, useState, useRef } from 'react';
 import styled from 'styled-components';
 
 const CursorDot = styled.div`
@@ -32,7 +32,7 @@ const CustomCursor = () => {
   const [isHovering, setIsHovering] = useState(false);
   const requestRef = useRef();
 
-  const animate = () => {
+  const animate = useCallback(() => {
     // Calculate the distance between current position and target (mouse) position
     const dotDiffX = mouseRef.current.x - dotRef.current.x;
     const dotDiffY = mouseRef.current.y - dotRef.current.y;
@@ -55,7 +55,7 @@ const CustomCursor = () => {
     
     // Continue the animation loop
     requestRef.current = requestAnimationFrame(animate);
-  };
+  }, []);
 
   useEffect(() => {
     const updatePosition = (e) => {
@@ -82,7 +82,7 @@ const CustomCursor = () => {
       });
       cancelAnimationFrame(requestRef.current);
     };
-  }, []);
+  }, [animate]);
 
   return (
     <>
