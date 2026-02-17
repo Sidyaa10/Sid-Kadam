@@ -11,7 +11,6 @@ import { ReactComponent as CIcon } from '../assets/skills/c.svg';
 import { ReactComponent as SqlIcon } from '../assets/skills/sql.svg';
 import { ReactComponent as MongoIcon } from '../assets/skills/mongodb.svg';
 import GitHubIcon from '@mui/icons-material/GitHub';
-import { ReactComponent as PhpIcon } from '../assets/skills/php.svg';
 import { ReactComponent as PythonIcon } from '../assets/skills/python.svg';
 import { ReactComponent as TypeScriptIcon } from '../assets/skills/typescript.svg';
 
