@@ -136,7 +136,10 @@ export default function About() {
                 textAlign: { xs: 'left', sm: 'justify' }
               }}
             >
-              Hi Sir/Madam, my name is Siddhesh Anand Kadam and I recently graduated from Kaveri College. I am a hard worker and always give my hundred percent on the tasks/work I've been assigned. I wish to grow my skills further and gain more experience through my next opportunity.
+              I am a passionate Software Engineer with a strong foundation in frontend and full-stack development. I enjoy transforming complex problems into clean, efficient, and scalable solutions.
+              <br />
+              <br />
+              As a recent Computer Science graduate, I continuously improve my skills by building real-world projects and exploring modern technologies. I aim to contribute to impactful products while growing as an engineer.
             </Typography>
           </motion.div>
 

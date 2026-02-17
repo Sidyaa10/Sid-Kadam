@@ -26,7 +26,7 @@ export default function Experience() {
             </Typography>
           </Stack>
           <Typography color="text.primary">
-            Looking for a job where I can utilize my knowledge in coding, problem-solving abilities and help resolve other person's problems. I will always give my 101% on the job and put all my effort towards completing the given task.
+            Actively seeking an entry-level opportunity where I can contribute to real-world projects using modern web technologies. I bring strong problem-solving skills, hands-on full-stack experience, and a growth mindset focused on continuous improvement.
           </Typography>
         </Paper>
         <Paper sx={{ p: 4, bgcolor: 'background.paper', boxShadow: 3, mb: 4 }}>

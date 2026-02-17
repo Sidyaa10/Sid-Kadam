@@ -4,6 +4,7 @@ import { motion } from 'framer-motion';
 import WebIcon from '@mui/icons-material/Web';
 
 import { ReactComponent as ReactIcon } from '../assets/skills/react.svg';
+import { ReactComponent as NextIcon } from '../assets/skills/nextdotjs.svg';
 import { ReactComponent as NodeIcon } from '../assets/skills/javascript.svg';
 import { ReactComponent as MongoIcon } from '../assets/skills/mongodb.svg';
 import { ReactComponent as JsIcon } from '../assets/skills/javascript.svg';
@@ -15,7 +16,8 @@ export default function Projects() {
   const theme = useTheme();
 
   const techStack = [
-    { icon: <ReactIcon />, label: 'React / Next.js' },
+    { icon: <ReactIcon />, label: 'React' },
+    { icon: <NextIcon />, label: 'Next.js' },
     { icon: <TypeScriptIcon />, label: 'TypeScript' },
     { icon: <NodeIcon />, label: 'Node.js' },
     { icon: <MongoIcon />, label: 'MongoDB' },
@@ -82,7 +84,7 @@ export default function Projects() {
                 color="primary.main"
                 fontWeight={600}
               >
-                🌍 Wanderlust Road Stories
+                🌍Wanderlust Road Stories (Web-App)
               </Typography>
             </Link>
           </Stack>

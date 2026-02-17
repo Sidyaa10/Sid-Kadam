@@ -109,9 +109,9 @@ export default function Expose() {
               poster: 'https://i.pinimg.com/736x/51/95/36/519536d3960ec5d289a4a52525438035.jpg'
             },
             {
-              title: 'Interstellar',
-              year: '2014',
-              poster: 'https://i.pinimg.com/736x/ac/d4/f9/acd4f9d7a94b35391a2906edd27be4b3.jpg'
+              title: 'Kung Fu Hustle',
+              year: '2004',
+              poster: 'https://i.pinimg.com/1200x/7c/a4/6c/7ca46c28f488af44c996a14240c5d4ed.jpg'
             },
             {
               title: "You've Got Mail",

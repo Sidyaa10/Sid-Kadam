@@ -120,14 +120,14 @@ const Home = () => {
           />
           <Box sx={{ mt: 2, mb: 1, textAlign: 'center' }}>
             <Typography variant="h5" color="text.primary" component="span">
-              Hi, my name is<br />
+              Hi, I&apos;m Siddhesh Anand Kadam<br />
             </Typography>
             <Typography variant="h5" color="secondary.main" component="span">
-              Siddhesh Anand Kadam
+              Frontend Developer | Full-Stack Engineer | Building scalable and elegant web experiences.
             </Typography>
           </Box>
           <Description variant="body1" sx={{ textAlign: 'center', maxWidth: '600px', mx: 'auto', mt: 2 }}>
-            I'm a Software Engineer passionate about creating elegant solutions to complex problems. I recently graduated from Kaveri College and I'm always eager to learn and grow in the ever-evolving world of technology.
+            I specialize in building modern, high-performance web applications using React, Next.js, and the MERN stack. I focus on clean architecture, responsive design, and delivering production-ready solutions.
           </Description>
           <SocialLinks>
             {socialLinks.map((link, index) => (

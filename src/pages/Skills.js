@@ -16,6 +16,13 @@ import GitHubIcon from '@mui/icons-material/GitHub';
 const skillGroups = {
   'Programming Languages': [
     <CIcon key="c" style={{ width: 64, height: 64 }} />,
+    <img
+      key="cpp"
+      src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/cplusplus/cplusplus-original.svg"
+      alt="C++"
+      title="C++"
+      style={{ width: 64, height: 64 }}
+    />,
     <JavaIcon key="java" style={{ width: 64, height: 64 }} />,
     <PythonIcon key="python" style={{ width: 64, height: 64 }} />
   ],
