@@ -149,12 +149,6 @@ export default function Projects() {
               </Grid>
               <Grid item>
                 <Box sx={{ display: 'flex', alignItems: 'center', bgcolor: '#e9f5e9', borderRadius: '12px', p: 1 }}>
-                  <PhpIcon style={{ width: 32, height: 32 }} />
-                  <Typography variant="body2" sx={{ ml: 1, color: 'text.primary' }}>PHP</Typography>
-                </Box>
-              </Grid>
-              <Grid item>
-                <Box sx={{ display: 'flex', alignItems: 'center', bgcolor: '#e9f5e9', borderRadius: '12px', p: 1 }}>
                   <SqlIcon style={{ width: 32, height: 32 }} />
                   <Typography variant="body2" sx={{ ml: 1, color: 'text.primary' }}>PostgreSQL</Typography>
                 </Box>

@@ -228,7 +228,6 @@ export default function About() {
             <Stack direction="row" spacing={1} flexWrap="wrap" gap={1}>
               <StyledChip icon={<CIcon style={{ width: 40, height: 40 }} />} label="" sx={{ bgcolor: 'background.default' }} />
               <StyledChip icon={<JavaIcon style={{ width: 40, height: 40 }} />} label="" sx={{ bgcolor: 'background.default' }} />
-              <StyledChip icon={<PhpIcon style={{ width: 40, height: 40 }} />} label="" sx={{ bgcolor: 'background.default' }} />
               <StyledChip icon={<PythonIcon style={{ width: 40, height: 40 }} />} label="" sx={{ bgcolor: 'background.default' }} />
               <StyledChip icon={<HtmlIcon style={{ width: 40, height: 40 }} />} label="" sx={{ bgcolor: 'background.default' }} />
               <StyledChip icon={<CssIcon style={{ width: 40, height: 40 }} />} label="" sx={{ bgcolor: 'background.default' }} />

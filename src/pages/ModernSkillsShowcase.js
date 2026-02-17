@@ -4,7 +4,6 @@ import { ReactComponent as HtmlIcon } from '../assets/skills/html5.svg';
 import { ReactComponent as CssIcon } from '../assets/skills/css3.svg';
 import { ReactComponent as JsIcon } from '../assets/skills/javascript.svg';
 import { ReactComponent as TypeScriptIcon } from '../assets/skills/typescript.svg';
-import { ReactComponent as PhpIcon } from '../assets/skills/php.svg';
 import { ReactComponent as PythonIcon } from '../assets/skills/python.svg';
 import { ReactComponent as JavaIcon } from '../assets/skills/java.svg';
 import { ReactComponent as CIcon } from '../assets/skills/c.svg';
@@ -20,7 +19,6 @@ const showcaseSkills = [
   { name: 'JavaScript', icon: <JsIcon />, desc: 'web development' },
   { name: 'TypeScript', icon: <TypeScriptIcon />, desc: 'web development' },
   { name: 'React', icon: <ReactIcon />, desc: 'web development' },
-  { name: 'PHP', icon: <PhpIcon />, desc: 'web development' },
   { name: 'Python', icon: <PythonIcon />, desc: 'programming language' },
   { name: 'Java', icon: <JavaIcon />, desc: 'programming language' },
   { name: 'C Language', icon: <CIcon />, desc: 'programming language' },

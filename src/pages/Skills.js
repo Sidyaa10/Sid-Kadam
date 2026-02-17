@@ -3,8 +3,7 @@ import { Box, Grid, Typography } from '@mui/material';
 import { ReactComponent as HtmlIcon } from '../assets/skills/html5.svg';
 import { ReactComponent as CssIcon } from '../assets/skills/css3.svg';
 import { ReactComponent as JsIcon } from '../assets/skills/javascript.svg';
-import { ReactComponent as TypeScriptIcon } from '../assets/skills/typescript.svg';
-import { ReactComponent as PhpIcon } from '../assets/skills/php.svg';
+import { ReactComponent as TypeScriptIcon } from '../assets/skills/typescript.svg'
 import { ReactComponent as PythonIcon } from '../assets/skills/python.svg';
 import { ReactComponent as JavaIcon } from '../assets/skills/java.svg';
 import { ReactComponent as CIcon } from '../assets/skills/c.svg';
@@ -18,7 +17,6 @@ const skillGroups = {
   'Programming Languages': [
     <CIcon key="c" style={{ width: 64, height: 64 }} />,
     <JavaIcon key="java" style={{ width: 64, height: 64 }} />,
-    <PhpIcon key="php" style={{ width: 64, height: 64 }} />,
     <PythonIcon key="python" style={{ width: 64, height: 64 }} />
   ],
   'Web Design': [
