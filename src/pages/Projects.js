@@ -5,7 +5,7 @@ import WebIcon from '@mui/icons-material/Web';
 
 import { ReactComponent as ReactIcon } from '../assets/skills/react.svg';
 import { ReactComponent as NextIcon } from '../assets/skills/nextdotjs.svg';
-import { ReactComponent as NodeIcon } from '../assets/skills/javascript.svg';
+import { ReactComponent as NodeIcon } from '../assets/skills/nodedotjs.svg';
 import { ReactComponent as MongoIcon } from '../assets/skills/mongodb.svg';
 import { ReactComponent as JsIcon } from '../assets/skills/javascript.svg';
 import { ReactComponent as TypeScriptIcon } from '../assets/skills/typescript.svg';
