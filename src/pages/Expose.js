@@ -1,5 +1,5 @@
 import React from 'react';
-import { Box, Typography, Grid, useTheme } from '@mui/material';
+import { Box, Typography, Grid } from '@mui/material';
 import { ReactComponent as LetterboxdIcon } from '../assets/letterboxd-logo.svg';
 import { ReactComponent as ValorantIcon } from '../assets/valorant.svg';
 

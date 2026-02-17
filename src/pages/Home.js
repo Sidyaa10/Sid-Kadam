@@ -1,17 +1,10 @@
 import React from 'react';
-import { Box, Typography, Stack, IconButton, useTheme } from '@mui/material';
+import { Box, Typography } from '@mui/material';
 import { motion } from 'framer-motion';
 import EmailIcon from '@mui/icons-material/Email';
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
 import GitHubIcon from '@mui/icons-material/GitHub';
 import styled from 'styled-components';
-
-const StyledIconButton = styled(motion(IconButton))`
-  color: ${({ theme }) => theme.colors.primary};
-  &:hover {
-    background: ${({ theme }) => theme.colors.secondary}22;
-  }
-`;
 
 const Section = styled(motion.div)`
   min-height: 100vh;
@@ -22,25 +15,6 @@ const Section = styled(motion.div)`
   padding: clamp(80px, 10vh, 120px) 0;
   @media (max-width: 768px) {
     padding: 80px 0;
-  }
-`;
-
-const Title = styled(Typography)`
-  color: ${({ theme }) => theme.colors.secondary};
-  font-size: clamp(32px, 8vw, 80px);
-  font-weight: 600;
-  margin-bottom: 20px;
-  @media (max-width: 768px) {
-    font-size: clamp(32px, 6vw, 60px);
-  }
-`;
-
-const Subtitle = styled(Typography)`
-  color: ${({ theme }) => theme.colors.primary};
-  font-size: clamp(18px, 4vw, 40px);
-  margin-bottom: 30px;
-  @media (max-width: 768px) {
-    font-size: clamp(18px, 3vw, 32px);
   }
 `;
 
@@ -94,13 +68,6 @@ const SocialIcon = styled(motion.a)`
   }
 `;
 
-const SocialIconWrapper = styled(Box)`
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 100%;
-`;
-
 const socialLinks = [
   {
     icon: <LinkedInIcon />,
@@ -124,8 +91,6 @@ const socialLinks = [
 ];
 
 const Home = () => {
-  const theme = useTheme();
-
   return (
     <Section
       initial={{ opacity: 0 }}

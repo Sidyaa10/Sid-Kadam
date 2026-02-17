@@ -1,5 +1,5 @@
 import React from 'react';
-import { Box, Typography, Paper, Stack, Grid, Chip, useTheme } from '@mui/material';
+import { Box, Typography, Paper, Stack, Grid } from '@mui/material';
 import { motion } from 'framer-motion';
 import WorkIcon from '@mui/icons-material/Work';
 import SchoolIcon from '@mui/icons-material/School';
@@ -7,7 +7,6 @@ import LanguageIcon from '@mui/icons-material/Language';
 import InterestsIcon from '@mui/icons-material/SportsCricket';
 
 export default function Experience() {
-  const theme = useTheme();
   return (
     <Box sx={{ minHeight: '80vh', bgcolor: 'background.default', py: 8 }}>
       <motion.div

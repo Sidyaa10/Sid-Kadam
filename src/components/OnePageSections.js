@@ -1,5 +1,5 @@
 import React, { useRef, useState, useEffect } from 'react';
-import { Box, Typography, Button, List, ListItem, ListItemText, IconButton } from '@mui/material';
+import { Box, Typography, Button } from '@mui/material';
 import Home from '../pages/Home';
 import About from '../pages/About';
 import Skills from '../pages/Skills';
@@ -61,7 +61,6 @@ const sections = [
 const OnePageSections = () => {
   const containerRef = useRef(null);
   const [current, setCurrent] = useState(0);
-  const [isScrolling, setIsScrolling] = useState(false);
 
   useEffect(() => {
     const container = containerRef.current;
@@ -77,13 +76,6 @@ const OnePageSections = () => {
     };
 
     const handleScroll = () => {
-      setIsScrolling(true);
-      
-      // Debounce scroll end
-      setTimeout(() => {
-        setIsScrolling(false);
-      }, 300);
-
       // Calculate current section based on scroll position
       const scrollPosition = container.scrollTop;
       const totalHeight = container.scrollHeight;
@@ -123,14 +115,6 @@ const OnePageSections = () => {
       // Update current state after scroll animation completes
       setTimeout(() => setCurrent(idx), 500);
     }
-  };
-
-  const handlePrev = () => {
-    if (current > 0) scrollToSection(current - 1);
-  };
-
-  const handleNext = () => {
-    if (current < sections.length - 1) scrollToSection(current + 1);
   };
 
   return (

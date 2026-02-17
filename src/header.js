@@ -1,4 +1,4 @@
-import { NavLink, Link } from "react-router-dom"; // Correct import
+import { Link } from "react-router-dom";
 
 const Header = () => {
   return (
