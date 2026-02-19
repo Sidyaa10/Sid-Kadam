@@ -15,7 +15,7 @@ const contactLinks = [
     icon: <PhoneIcon />, label: 'Phone', href: 'tel:+917972079747', color: 'secondary.main',
   },
   {
-    icon: <LinkedInIcon />, label: 'LinkedIn', href: 'https://www.linkedin.com/in/siddhesh-kadam-593444359/', color: 'secondary.main',
+    icon: <LinkedInIcon />, label: 'LinkedIn', href: 'https://www.linkedin.com/in/siddhesh-kadam-5b0961367/', color: 'secondary.main',
   },
   {
     icon: <GitHubIcon />, label: 'GitHub', href: 'https://github.com/Sidyaa10', color: 'secondary.main',

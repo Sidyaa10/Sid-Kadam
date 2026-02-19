@@ -33,7 +33,7 @@ const Contact = () => {
     {
       icon: <LinkedInIcon className="text-2xl" />,
       label: 'LinkedIn',
-      link: 'https://linkedin.com/in/siddhesh-kadam'
+      link: 'https://www.linkedin.com/in/siddhesh-kadam-5b0961367/'
     },
     {
       icon: <GitHubIcon className="text-2xl" />,
