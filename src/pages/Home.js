@@ -72,7 +72,7 @@ const socialLinks = [
   {
     icon: <LinkedInIcon />,
     label: 'LinkedIn',
-    href: 'https://www.linkedin.com/in/siddhesh-kadam-593444359/',
+    href: 'https://www.linkedin.com/in/siddhesh-kadam-5b0961367/',
     target: '_blank',
     rel: 'noopener noreferrer'
   },
