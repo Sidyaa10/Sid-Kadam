@@ -116,7 +116,7 @@ export default function Projects() {
                 sx={{ display: 'inline-flex' }}
               >
                 <Typography variant="h5" color="primary.main" fontWeight={700}>
-                  TASK-ZEN
+                  TASK-ZEN (Live Demo)
                 </Typography>
               </Link>
               <Typography variant="subtitle1" color="text.secondary">
@@ -282,7 +282,7 @@ export default function Projects() {
               underline="hover"
             >
               <Typography variant="h5" color="primary.main" fontWeight={700}>
-                Wanderlust Road Stories (Web-App)
+                Wanderlust Road Stories (Live Demo)
               </Typography>
             </Link>
           </Stack>
