@@ -108,9 +108,17 @@ export default function Projects() {
           >
             <WebIcon color="secondary" sx={{ fontSize: 36 }} />
             <Box>
-              <Typography variant="h5" color="primary.main" fontWeight={700}>
-                TASK-ZEN
-              </Typography>
+              <Link
+                href="https://task-zen-five.vercel.app/"
+                target="_blank"
+                rel="noopener noreferrer"
+                underline="none"
+                sx={{ display: 'inline-flex' }}
+              >
+                <Typography variant="h5" color="primary.main" fontWeight={700}>
+                  TASK-ZEN
+                </Typography>
+              </Link>
               <Typography variant="subtitle1" color="text.secondary">
                 Full-Stack Productivity SaaS (Production Deployed)
               </Typography>
@@ -124,28 +132,6 @@ export default function Projects() {
           </Typography>
 
           <Stack direction={{ xs: 'column', sm: 'row' }} spacing={2} sx={{ mt: 3, mb: 3 }}>
-            <Button
-              component="a"
-              href="https://task-zen-five.vercel.app/"
-              target="_blank"
-              rel="noopener noreferrer"
-              variant="contained"
-              endIcon={<OpenInNewIcon />}
-              sx={{
-                borderRadius: 2.5,
-                textTransform: 'none',
-                fontWeight: 700,
-                px: 2,
-                py: 1.1,
-                boxShadow: '0 10px 24px rgba(86, 105, 79, 0.22)',
-                background: 'linear-gradient(135deg, #56694F 0%, #6F8867 100%)',
-                '&:hover': {
-                  background: 'linear-gradient(135deg, #4C5D45 0%, #627A5C 100%)',
-                },
-              }}
-            >
-              https://task-zen-five.vercel.app/
-            </Button>
             <Button
               component="a"
               href="https://github.com/Sidyaa10/Task-Zen"
