@@ -13,9 +13,17 @@ import { motion } from 'framer-motion';
 import WebIcon from '@mui/icons-material/Web';
 import OpenInNewIcon from '@mui/icons-material/OpenInNew';
 import GitHubIcon from '@mui/icons-material/GitHub';
+import { ReactComponent as ReactIcon } from '../assets/skills/react.svg';
+import { ReactComponent as NextIcon } from '../assets/skills/nextdotjs.svg';
+import { ReactComponent as NodeIcon } from '../assets/skills/nodedotjs.svg';
+import { ReactComponent as MongoIcon } from '../assets/skills/mongodb.svg';
+import { ReactComponent as JsIcon } from '../assets/skills/javascript.svg';
+import { ReactComponent as TypeScriptIcon } from '../assets/skills/typescript.svg';
+import { ReactComponent as HtmlIcon } from '../assets/skills/html5.svg';
+import { ReactComponent as CssIcon } from '../assets/skills/css3.svg';
 
 export default function Projects() {
-  const techStack = [
+  const taskZenTechStack = [
     { label: 'React', logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg' },
     { label: 'Next.js', logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nextjs/nextjs-original.svg' },
     { label: 'TypeScript', logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg' },
@@ -26,9 +34,9 @@ export default function Projects() {
   ];
 
   const deploymentStack = [
-    { title: 'Frontend', value: 'Vercel' },
-    { title: 'Backend', value: 'Render' },
-    { title: 'Database', value: 'MongoDB Atlas' },
+    { title: 'Frontend', value: 'Vercel', logo: '/vercel.svg' },
+    { title: 'Backend', value: 'Render', logo: '/render.svg' },
+    { title: 'Database', value: 'MongoDB Atlas', logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-original.svg' },
   ];
 
   const capabilityItems = [
@@ -36,6 +44,17 @@ export default function Projects() {
     'Calendar-first planning with dynamic month switching and persistent completion state.',
     'Structured task architecture with event reminders, skill goals, deadline projects, and quick tasks.',
     'Analytics dashboards for streaks, completion metrics, and real-time productivity updates.',
+  ];
+
+  const wanderlustTechStack = [
+    { icon: <ReactIcon />, label: 'React' },
+    { icon: <NextIcon />, label: 'Next.js' },
+    { icon: <TypeScriptIcon />, label: 'TypeScript' },
+    { icon: <NodeIcon />, label: 'Node.js' },
+    { icon: <MongoIcon />, label: 'MongoDB' },
+    { icon: <HtmlIcon />, label: 'HTML5' },
+    { icon: <CssIcon />, label: 'CSS3' },
+    { icon: <JsIcon />, label: 'JavaScript' },
   ];
 
   const cardMotion = {
@@ -129,7 +148,7 @@ export default function Projects() {
             </Button>
             <Button
               component="a"
-              href="https://github.com/Sidyaa10"
+              href="https://github.com/Sidyaa10/Task-Zen"
               target="_blank"
               rel="noopener noreferrer"
               variant="outlined"
@@ -180,7 +199,7 @@ export default function Projects() {
           </Typography>
 
           <Grid container spacing={2}>
-            {techStack.map((tech) => (
+            {taskZenTechStack.map((tech) => (
               <Grid item xs={12} sm={6} md={4} key={tech.label}>
                 <Paper
                   component={motion.div}
@@ -228,8 +247,13 @@ export default function Projects() {
                     border: '1px solid rgba(86,105,79,0.14)',
                     bgcolor: '#F8FBF6',
                     textAlign: 'center',
+                    display: 'flex',
+                    flexDirection: 'column',
+                    alignItems: 'center',
+                    gap: 0.8,
                   }}
                 >
+                  <Box component="img" src={item.logo} alt={item.value} sx={{ width: 24, height: 24, objectFit: 'contain' }} />
                   <Typography variant="caption" color="text.secondary" sx={{ letterSpacing: 0.8 }}>
                     {item.title}
                   </Typography>
@@ -247,15 +271,95 @@ export default function Projects() {
             Engineering impact: Demonstrates production-grade full-stack architecture, secure cloud persistence,
             and scalable separation between frontend, backend, and data layers.
           </Typography>
+        </Paper>
 
-          <Stack direction="row" spacing={2} sx={{ mt: 2 }}>
-            <Link href="https://task-zen-five.vercel.app/" target="_blank" rel="noopener noreferrer" underline="hover">
-              Live Demo <OpenInNewIcon sx={{ fontSize: 16, verticalAlign: 'text-bottom' }} />
-            </Link>
-            <Link href="https://github.com/Sidyaa10" target="_blank" rel="noopener noreferrer" underline="hover">
-              GitHub <OpenInNewIcon sx={{ fontSize: 16, verticalAlign: 'text-bottom' }} />
+        <Paper
+          sx={{
+            p: { xs: 3, sm: 4, md: 5 },
+            bgcolor: 'background.paper',
+            boxShadow: '0 16px 36px rgba(20, 40, 30, 0.12)',
+            mt: 4,
+            borderRadius: 4,
+          }}
+        >
+          <Stack
+            direction={{ xs: 'column', sm: 'row' }}
+            spacing={2}
+            alignItems={{ xs: 'flex-start', sm: 'center' }}
+            mb={2}
+          >
+            <WebIcon color="secondary" sx={{ fontSize: 36 }} />
+            <Link
+              href="https://wanderlust-road-stories-62.vercel.app/"
+              target="_blank"
+              rel="noopener noreferrer"
+              underline="hover"
+            >
+              <Typography variant="h5" color="primary.main" fontWeight={700}>
+                Wanderlust Road Stories (Web-App)
+              </Typography>
             </Link>
           </Stack>
+
+          <Typography color="text.primary" sx={{ mb: 2, lineHeight: 1.8 }}>
+            A production-ready full-stack travel storytelling platform where users can create, explore, and filter
+            global road trip stories with secure authentication and interactive maps.
+          </Typography>
+
+          <Typography fontWeight={700} color="primary.main" sx={{ mb: 1 }}>
+            Key Features:
+          </Typography>
+          <Box component="ul" sx={{ mt: 0, mb: 2, pl: 3, color: 'text.primary' }}>
+            <li>Secure authentication system with protected routes</li>
+            <li>Interactive map integration for location-based storytelling</li>
+            <li>Complete CRUD functionality for travel story management</li>
+            <li>Responsive UI optimized for all screen sizes</li>
+            <li>Smooth animations powered by Framer Motion</li>
+          </Box>
+
+          <Typography fontWeight={700} color="primary.main" sx={{ mb: 2 }}>
+            Tech Stack:
+          </Typography>
+
+          <Grid container spacing={2}>
+            {wanderlustTechStack.map((tech) => (
+              <Grid item xs={12} sm={6} md={3} key={tech.label}>
+                <Paper
+                  component={motion.div}
+                  elevation={0}
+                  {...cardMotion}
+                  sx={{
+                    display: 'flex',
+                    alignItems: 'center',
+                    gap: 1.25,
+                    borderRadius: 2.5,
+                    px: 2,
+                    py: 1.4,
+                    border: '1px solid rgba(86,105,79,0.14)',
+                    bgcolor: '#F8FBF6',
+                    boxShadow: '0 4px 12px rgba(30, 60, 40, 0.06)',
+                  }}
+                >
+                  {React.cloneElement(tech.icon, {
+                    style: { width: 26, height: 26 },
+                  })}
+                  <Typography variant="body2" fontWeight={600}>
+                    {tech.label}
+                  </Typography>
+                </Paper>
+              </Grid>
+            ))}
+          </Grid>
+
+          <Typography fontWeight={700} color="primary.main" sx={{ mt: 3, mb: 1 }}>
+            Impact:
+          </Typography>
+          <Box component="ul" sx={{ mt: 0, mb: 0, pl: 3, color: 'text.primary' }}>
+            <li>Demonstrates full-stack development capability using MERN stack</li>
+            <li>Implements scalable MongoDB-based data storage architecture</li>
+            <li>Enhances user engagement through dynamic and interactive UI</li>
+            <li>Successfully deployed to production using Vercel</li>
+          </Box>
         </Paper>
       </motion.div>
     </Box>
